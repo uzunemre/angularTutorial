@@ -1,2 +1,2 @@
 # angularTutorial
-Angular Tutorial
+Angular Tutorial Lab
