@@ -13,13 +13,18 @@ import { CoursesService } from './courses.service';
     `*/
 
     // attribute binding. td de colspan igib bir özellik yok o yüzden attrbüte olarak eklyoruz
-    template: `
+    /*template: `
     <table>
         <tr>
             <td [attr.colspan]="colSpan" >Test</td>
         </tr>
     </table>
-    `
+    `*/
+
+    template: `
+        <button class="btn btn-primary">Save</button>
+     `
+
 })
 
 export class CoursesComponent {
