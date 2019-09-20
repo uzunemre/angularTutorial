@@ -26,8 +26,13 @@ import { CoursesService } from './courses.service';
         <button class="btn btn-primary" [class.active]="isActive">Save</button>
      `*/
 
+    /*
+   template: `
+       <button [style.backgroundColor]="isActive ? 'blue':'white'">Save</button>
+    `*/
+
     template: `
-        <button [style.backgroundColor]="isActive ? 'blue':'white'">Save</button>
+        <button (click)="onSave($event)">Save</button>
      `
 
 })
@@ -37,4 +42,9 @@ export class CoursesComponent {
     imageUrl = "http://lorempixel.com/400/200/";
     colSpan = 2;
     isActive = false;
+
+    onSave($event) {
+        console.log("Button was clicked",$event);
+    }
+
 }
