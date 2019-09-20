@@ -21,8 +21,13 @@ import { CoursesService } from './courses.service';
     </table>
     `*/
 
+    // isActive değişkenine cöre aktif classı ekler. class binding
+    /*template: `
+        <button class="btn btn-primary" [class.active]="isActive">Save</button>
+     `*/
+
     template: `
-        <button class="btn btn-primary">Save</button>
+        <button [style.backgroundColor]="isActive ? 'blue':'white'">Save</button>
      `
 
 })
@@ -31,4 +36,5 @@ export class CoursesComponent {
     title = "List of courses";
     imageUrl = "http://lorempixel.com/400/200/";
     colSpan = 2;
+    isActive = false;
 }
