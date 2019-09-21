@@ -31,8 +31,12 @@ import { CoursesService } from './courses.service';
        <button [style.backgroundColor]="isActive ? 'blue':'white'">Save</button>
     `*/
 
-    template: `
+    /*template: `
         <button (click)="onSave($event)">Save</button>
+     `*/
+
+    template: `
+        <input (keyup.enter)="onKeyUp()"/>
      `
 
 })
@@ -44,7 +48,11 @@ export class CoursesComponent {
     isActive = false;
 
     onSave($event) {
-        console.log("Button was clicked",$event);
+        console.log("Button was clicked", $event);
+    }
+
+    onKeyUp() {
+        alert("Enter was clicked");
     }
 
 }
