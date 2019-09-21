@@ -39,9 +39,13 @@ import { CoursesService } from './courses.service';
         <input (keyup.enter)="onKeyUp()"/>
      `-*/
 
-    template: `
+    /*template: `
         <input #email (keyup.enter)="onKeyUp(email.value)"/>
-     `
+     `*/
+
+    template: `
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+  `
 
 })
 
@@ -50,17 +54,22 @@ export class CoursesComponent {
     imageUrl = "http://lorempixel.com/400/200/";
     colSpan = 2;
     isActive = false;
+    email = "emreuzun92@gmail.com";
 
-    onSave($event) {
+    /*onSave($event) {
         console.log("Button was clicked", $event);
-    }
+    }*/
 
     /*onKeyUp() {
         alert("Enter was clicked");
     }*/
 
-    onKeyUp(email) {
+    /*onKeyUp(email) {
         alert(email);
+    }*/
+
+    onKeyUp() {
+        alert(this.email);
     }
 
 }
