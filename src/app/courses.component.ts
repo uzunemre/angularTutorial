@@ -35,8 +35,12 @@ import { CoursesService } from './courses.service';
         <button (click)="onSave($event)">Save</button>
      `*/
 
-    template: `
+    /*template: `
         <input (keyup.enter)="onKeyUp()"/>
+     `-*/
+
+    template: `
+        <input #email (keyup.enter)="onKeyUp(email.value)"/>
      `
 
 })
@@ -51,8 +55,12 @@ export class CoursesComponent {
         console.log("Button was clicked", $event);
     }
 
-    onKeyUp() {
+    /*onKeyUp() {
         alert("Enter was clicked");
+    }*/
+
+    onKeyUp(email) {
+        alert(email);
     }
 
 }
