@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'favorite',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent implements OnInit {
-  isFavorite: boolean;
+  // is-favorite alias. html sayfasından is-favorite yazarak erişim sağlanabilir. değişken ismi yerine alieas kullanır
+  @Input('is-favorite') isFavorite: boolean; // input anatasyonu dışında bir yol daha var componente decorator inputs yapılabilir
 
   constructor() { }
 
@@ -15,6 +16,5 @@ export class FavoriteComponent implements OnInit {
 
   onClick() {
     this.isFavorite = !this.isFavorite;
-    console.log(this.isFavorite);
   }
 }
