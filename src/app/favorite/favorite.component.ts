@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'favorite',
@@ -9,6 +10,8 @@ export class FavoriteComponent implements OnInit {
   // is-favorite alias. html sayfasından is-favorite yazarak erişim sağlanabilir. değişken ismi yerine alieas kullanır
   @Input('is-favorite') isFavorite: boolean; // input anatasyonu dışında bir yol daha var componente decorator inputs yapılabilir
 
+  @Output('change') change = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -16,5 +19,10 @@ export class FavoriteComponent implements OnInit {
 
   onClick() {
     this.isFavorite = !this.isFavorite;
+    this.change.emit({ newValue: this.isFavorite });
   }
+}
+
+export interface FavoriteChangedEventArgs {
+  newValue: boolean
 }
