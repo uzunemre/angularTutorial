@@ -1,0 +1,10 @@
+<span
+  class="fa fa-heart"
+  [class.liked]="isActive"
+  [class.unliked]="!isActive"
+  (click)="onClick()"
+>
+</span>
+
+<span>{{likesCount}}</span>
+
