@@ -1,7 +1,13 @@
-<span 
+<span
   class="size badge"
-  [class.badge-success]="isFavorite"
-  [class.badge-danger]="!isFavorite"
+  [ngClass]="{
+    'badge-success': isFavorite,
+    'badge-danger': !isFavorite
+  }"
   (click)="onClick()"
-  >Test</span>
+>Test</span>
+
+<!-- ng class da kullanılabilir -->
+<!--[class.badge-success]="isFavorite"
+[class.badge-danger]="!isFavorite"-->
 
