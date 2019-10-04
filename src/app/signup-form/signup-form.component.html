@@ -17,6 +17,11 @@
       <div *ngIf="username.errors.cannotContainSpace">
         User name can not contain Space
       </div>
+
+      <div *ngIf="username.errors.shouldBeUnique">
+        User name is already taken
+      </div>
+
     </div>
 
   </div>
