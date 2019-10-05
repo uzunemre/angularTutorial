@@ -27,6 +27,18 @@
   </div>
 
   <p>{{f.value | json}}</p>
-  <button class="btn btn-primary" [disabled]="f.invalid" >Create</button>
+  <button class="btn btn-primary" [disabled]="f.invalid">Create</button>
+
+  <br>
+  <br>
+
+  <p>Add Item </p>
+  <input type="text" class="form-control" (keyup.enter)="addTopic(topic)" #topic >
+
+  <ul class="list-group">
+    <li *ngFor="let topic of topics.controls" (click)="removeTopic(topic)" class="list-group-item">
+      {{topic.value}}
+    </li>
+  </ul>
 
 </form>
