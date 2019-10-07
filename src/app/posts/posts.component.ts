@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from '../services/post.service';
-import {error} from 'selenium-webdriver';
 import {NotFoundError} from '../common/not-found-error';
 import {BadInput} from '../common/bad-input';
 
@@ -19,45 +18,39 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getPosts().subscribe(response => {
+    this.service.getAll().subscribe(response => {
       this.posts = response;
       console.log(this.posts);
-    }, error => {
-      alert('An unexpected error occurred');
-      console.log(error);
     });
   }
 
+  // app-error-handler sınıfı fırlatılan erroru yakalar.app-module.ts de belirtilmiştir( {provide: ErrorHandler, useClass: AppErrorHandler})
   createPost(input: HTMLInputElement) {
     let post = {title: input.value};
     input.value = '';
 
-    this.service.createPost(post).subscribe(response => {
+    this.service.create(post).subscribe(response => {
       //post['id'] = response.id;
       this.posts.splice(0, 0, post);
     }, (error: Response) => {
-      if (error instanceof  BadInput) {
+      if (error instanceof BadInput) {
         //this.form.setErrors(error.originalError);
       }
       else {
-        alert('An unexpected error occurred');
-        console.log(error);
+        throw error;
       }
     });
   }
 
   updatePost(post) {
-    this.service.updatePost(post).subscribe(response => {
+    this.service.update(post).subscribe(response => {
       console.log(response);
-    }, error => {
-      alert('An unexpected error occurred');
-      console.log(error);
     });
     //this.http.put(this.url, JSON.stringify(post));
   }
 
   deletePost(post) {
-    this.service.deletePost(post.id).subscribe(response => {
+    this.service.delete(post.id).subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
     }, (error: Response) => {
@@ -65,12 +58,11 @@ export class PostsComponent implements OnInit {
         alert('This post has already been deleted');
       }
       else {
-        alert('An unexpected error occurred');
-        console.log(error);
+        throw error;
       }
-
-
     });
   }
+
+
 
 }
