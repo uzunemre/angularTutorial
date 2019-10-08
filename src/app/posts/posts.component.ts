@@ -18,21 +18,20 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getAll().subscribe(response => {
-      this.posts = response;
-      console.log(this.posts);
-    });
+    this.service.getAll().subscribe(posts => this.posts = posts);
   }
 
   // app-error-handler sınıfı fırlatılan erroru yakalar.app-module.ts de belirtilmiştir( {provide: ErrorHandler, useClass: AppErrorHandler})
   createPost(input: HTMLInputElement) {
     let post = {title: input.value};
+    this.posts.splice(0, 0, post);
     input.value = '';
 
-    this.service.create(post).subscribe(response => {
-      //post['id'] = response.id;
-      this.posts.splice(0, 0, post);
+    this.service.create(post).subscribe(newPost => {
+      //post['id'] = newPost.id;
+
     }, (error: Response) => {
+      this.posts.splice(0, 1);
       if (error instanceof BadInput) {
         //this.form.setErrors(error.originalError);
       }
@@ -43,17 +42,21 @@ export class PostsComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.service.update(post).subscribe(response => {
-      console.log(response);
+    this.service.update(post).subscribe(updatedPost => {
+      console.log(updatedPost);
     });
     //this.http.put(this.url, JSON.stringify(post));
   }
 
   deletePost(post) {
-    this.service.delete(post.id).subscribe(response => {
-      let index = this.posts.indexOf(post);
-      this.posts.splice(index, 1);
+
+    let index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+
+    this.service.delete(post.id).subscribe(() => {
+
     }, (error: Response) => {
+      this.posts.splice(index, 0, post);
       if (error instanceof NotFoundError) {
         alert('This post has already been deleted');
       }
@@ -62,7 +65,6 @@ export class PostsComponent implements OnInit {
       }
     });
   }
-
 
 
 }
