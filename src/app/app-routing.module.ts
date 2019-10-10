@@ -16,7 +16,7 @@ const routes: Routes = [
 
   // spesifik linkler başta olmalı. GithubFollowersComponent altında olsaydı bu url çalışmazıd
   {
-    path: 'followers/:username',
+    path: 'followers/:id/:username',
     component: GithubProfileComponent
   },
 
