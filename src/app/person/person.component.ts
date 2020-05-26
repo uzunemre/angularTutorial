@@ -51,6 +51,7 @@ export class PersonComponent implements OnInit {
   }
 
   public Save() {
+    console.log(this.personModel);
     if (this.isEdit) {
       this.service.updatePerson(this.personModel).subscribe((data: any) => {
       });

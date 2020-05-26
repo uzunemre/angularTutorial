@@ -29,6 +29,14 @@ import {ProductComponent} from './product/product.component';
 import {ProductService} from "./services/product.service";
 import { PersonComponent } from './person/person.component';
 import {PersonService} from "./services/person.service";
+import { BookComponent } from './input-ouput/components/book/book.component';
+import { CommentsComponent } from './input-ouput/components/comments/comments.component';
+import { RateComponent } from './input-ouput/components/rate/rate.component';
+import { RateResultComponent } from './input-ouput/components/rate-result/rate-result.component';
+
+import { CekilisSonucComponent } from './component-communication/components/cekilis-sonuc/cekilis-sonuc.component';
+import { CekilisComponent } from './component-communication/components/cekilis/cekilis.component';
+import {CekilisBaslaComponent} from "./component-communication/components/cekilis-basla/cekilis-basla.component";
 
 @NgModule({
   declarations: [
@@ -52,6 +60,13 @@ import {PersonService} from "./services/person.service";
     NotFoundComponent,
     ProductComponent,
     PersonComponent,
+    BookComponent,
+    CommentsComponent,
+    RateComponent,
+    RateResultComponent,
+    CekilisBaslaComponent,
+    CekilisSonucComponent,
+    CekilisComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,8 @@ import {PostsComponent} from './posts/posts.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ProductComponent} from "./product/product.component";
 import {PersonComponent} from "./person/person.component";
+import {BookComponent} from "./input-ouput/components/book/book.component";
+import {CekilisComponent} from "./component-communication/components/cekilis/cekilis.component";
 
 
 const routes: Routes = [
@@ -39,6 +41,16 @@ const routes: Routes = [
   {
     path: 'people',
     component: PersonComponent
+  },
+
+  {
+    path: 'input-output',
+    component: BookComponent
+  },
+
+  {
+    path: 'cekilis',
+    component: CekilisComponent
   },
 
   {

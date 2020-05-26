@@ -1,0 +1,32 @@
+<br/><br/><br/>
+<section id="plans">
+  <div class="container">
+    <div class="row">
+      <!-- item -->
+      <div class="col-md-9 text-center ">
+        <div class="panel panel-danger panel-pricing table-bordered">
+          <div class="panel-body text-center">
+            <p><strong>{{child.cekilis.mesaj}}</strong></p>
+            <span *ngIf="child.cekilis.geriSayim >-1" class="fa-stack fa-1x">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <strong class="fa-stack-1x " style="color: white">{{child.cekilis.geriSayim}}</strong>
+            </span>
+          </div>
+          <ul class="list-group text-center">
+            <app-cekilis-basla></app-cekilis-basla>
+            <app-cekilis-sonuc></app-cekilis-sonuc>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-9 text-center ">
+        <br>
+        <p></p>
+        <h5>{{date}}</h5>
+      </div>
+    </div>
+  </div>
+
+</section>
