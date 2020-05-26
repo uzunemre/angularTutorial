@@ -5,7 +5,8 @@ import {GithubFollowersComponent} from './github-followers/github-followers.comp
 import {GithubProfileComponent} from './github-profile/github-profile.component';
 import {PostsComponent} from './posts/posts.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-
+import {ProductComponent} from "./product/product.component";
+import {PersonComponent} from "./person/person.component";
 
 
 const routes: Routes = [
@@ -29,6 +30,17 @@ const routes: Routes = [
     path: 'posts',
     component: PostsComponent
   },
+
+  {
+    path: 'products',
+    component: ProductComponent
+  },
+
+  {
+    path: 'people',
+    component: PersonComponent
+  },
+
   {
     path: '**',
     component: NotFoundComponent

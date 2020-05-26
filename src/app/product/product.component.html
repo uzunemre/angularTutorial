@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div *ngIf="addedProduct" class="alert alert-success"> // Adım 3
+  {{addedProduct.title}} added to cart!
+</div>
+
+<div class="col mt-3">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let product of products">
+      <button (click)="addToCard(product)" type="button" class="btn btn-sm btn-primary float-right">
+        Sepete ekle
+        <i class="far fa-shopping-cart"></i>
+      </button>
+      {{product.title}}
+    </li>
+  </ul>
+</div>
